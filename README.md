@@ -5,7 +5,9 @@ Consists of a minimal server and a scraper
 
 ## Setup
 *optionally use a venv*
+
 pip install -r requirements.txt
+
 py server.py
 
 ## Use
