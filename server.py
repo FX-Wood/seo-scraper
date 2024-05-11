@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from scraper import get_scrape
 
 app = Flask(__name__)
 
@@ -15,9 +16,10 @@ def scrape():
     
     if 'uri' not in data:
         return jsonify({"error": "No uri to scrape provided"}), 400
-    
-    return jsonify({"": data['uri']})
 
+    meta_tags = get_scrape(data['uri'])
+    
+    return jsonify({"meta": meta_tags})
 
 if __name__ == '__main__':
     app.run(debug=True)
